@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { base_url } from "../../base_url";
 
 const ViewUser = () => {
@@ -29,7 +30,9 @@ const ViewUser = () => {
       return;
     }
 
-    const confirmDelete = window.confirm("Are you sure you want to delete the user?");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete the user?"
+    );
     if (!confirmDelete) return;
 
     try {
@@ -79,44 +82,93 @@ const ViewUser = () => {
       }
     } catch (error) {
       console.error("Error updating role:", error.message);
-      
     }
   };
 
   return (
-    <div>
-      {user.map((u) => (
-        <div key={u.id}>
-          <div>Username: {u.username}</div>
-          <div>
-            Role:{" "}
-            {editingUserId === u.id ? (
-              <select
-                value={newRole}
-                onChange={(e) => setNewRole(e.target.value)}
+    <motion.div
+      className="space-y-6 bg-gray-900 text-white rounded-xl shadow-lg max-w-screen-lg mx-auto px-4 sm:px-6 py-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        {user.map((u) => (
+          <motion.div
+            key={u.id}
+            className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col space-y-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+          >
+            <div className="flex justify-between items-center">
+              <div className="text-lg sm:text-xl font-semibold text-indigo-300">
+                {u.username}
+              </div>
+              <div
+                className={`text-sm font-medium ${
+                  u.role === "admin" ? "text-red-400" : "text-gray-400"
+                }`}
               >
-                <option value="">--Select Role--</option>
-                <option value="admin">Admin</option>
-                <option value="supportAgent">Support Agent</option>
-                <option value="employee">Employee</option>
-              </select>
-            ) : (
-              u.role
-            )}
-          </div>
-          {editingUserId === u.id ? (
-            <>
-              <button onClick={() => editRole(u.id)}>Save</button>
-              <button onClick={() => setEditingUserId(null)}>Cancel</button>
-            </>
-          ) : (
-            <button onClick={() => setEditingUserId(u.id)}>Edit</button>
-          )}
-          <button onClick={() => deleteUser(u.id, u.role)}>Delete</button>
-          <hr />
-        </div>
-      ))}
-    </div>
+                {u.role}
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-gray-500 text-sm">Role: </div>
+              {editingUserId === u.id ? (
+                <select
+                  value={newRole}
+                  onChange={(e) => setNewRole(e.target.value)}
+                  className="w-full p-3 mt-2 text-black bg-white rounded-lg shadow-sm"
+                >
+                  <option value="">--Select Role--</option>
+                  <option value="admin">Admin</option>
+                  <option value="supportAgent">Support Agent</option>
+                  <option value="employee">Employee</option>
+                </select>
+              ) : (
+                <div className="mt-2 text-gray-300">{u.role}</div>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {editingUserId === u.id ? (
+                <>
+                  <motion.button
+                    onClick={() => editRole(u.id)}
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md w-full sm:w-auto"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    Save
+                  </motion.button>
+                  <motion.button
+                    onClick={() => setEditingUserId(null)}
+                    className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg shadow-md w-full sm:w-auto"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    Cancel
+                  </motion.button>
+                </>
+              ) : (
+                <motion.button
+                  onClick={() => setEditingUserId(u.id)}
+                  className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg shadow-md w-full sm:w-auto"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  Edit
+                </motion.button>
+              )}
+              <motion.button
+                onClick={() => deleteUser(u.id, u.role)}
+                className="px-4 py-2 bg-red-800 hover:bg-red-700 text-white rounded-lg shadow-md w-full sm:w-auto"
+                whileHover={{ scale: 1.05 }}
+              >
+                Delete
+              </motion.button>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
   );
 };
 
