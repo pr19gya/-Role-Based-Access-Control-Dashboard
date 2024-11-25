@@ -1,0 +1,1 @@
+export const base_url="https://json-server-vercel-phi-wine.vercel.app/"
