@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { base_url } from '../../base_url';
-import { motion } from 'framer-motion'; // Importing Framer Motion for animations
+import { motion } from 'framer-motion'; 
 
 const UpdateTickets = () => {
   const [tickets, setTickets] = useState([]);
@@ -15,7 +15,7 @@ const UpdateTickets = () => {
           const tickets = await response.json();
           setTickets(tickets);
         } else {
-          console.error('Unable to fetch tickets');
+          // console.error('Unable to fetch tickets');
         }
       } catch (error) {
         console.error('Error fetching tickets:', error);
@@ -51,10 +51,10 @@ const UpdateTickets = () => {
       setTickets(updatedTickets);
       setEditingTicketId(null);
       setNewStatus('');
-      console.log('Status updated successfully');
+      // console.log('Status updated successfully');
     } catch (error) {
       console.error('Error updating status:', error.message);
-      alert('Please refresh the page to see the changes.');
+      // alert('Please refresh the page to see the changes.');
     }
   };
 
@@ -71,9 +71,9 @@ const UpdateTickets = () => {
               <motion.div
                 key={ticket.id}
                 className="bg-gray-700 p-6 rounded-lg shadow-xl"
-                initial={{ opacity: 0, y: 20 }} // Initial animation state
-                animate={{ opacity: 1, y: 0 }}   // Animation when component appears
-                transition={{ duration: 0.5 }}    // Duration of animation
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }}   
+                transition={{ duration: 0.5 }}    
               >
                 <div className="flex flex-col sm:flex-row justify-between items-center">
                   <h3 className="text-xl font-medium text-white">{ticket.title}</h3>

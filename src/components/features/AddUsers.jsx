@@ -22,15 +22,15 @@ const AddUsers = () => {
     try {
       const response = await axios.post(`${base_url}users`, userData);
       if (response.status === 201) {
-        console.log("User created successfully");
+        // console.log("User created successfully");
         alert('User created successfully!');
       } else {
-        console.log("User not created");
+        // console.log("User not created");
         alert('Error creating user. Please try again.');
       }
     } catch (error) {
       console.error(error);
-      alert("Please refresh the page to see the changes!");
+      // alert("Please refresh the page to see the changes!");
     }
   };
 

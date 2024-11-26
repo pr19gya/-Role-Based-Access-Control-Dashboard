@@ -31,16 +31,16 @@ const Login = ({ setRole }) => {
 
   return (
     <div className="h-screen w-screen relative overflow-hidden">
-      {/* Background Video */}
+      
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/login-video.mp4" // Replace with your video file path
+        src="/login-video.mp4" 
         autoPlay
         loop
         muted
       ></video>
 
-      {/* Login Form */}
+      
       <motion.div
         className="relative z-10 bg-opacity-50 p-8 rounded-md text-white w-11/12 max-w-sm mx-auto flex flex-col items-center justify-center h-screen md:max-w-md lg:max-w-lg"
         initial={{ opacity: 0, y: 50 }}
@@ -88,7 +88,7 @@ const Login = ({ setRole }) => {
         )}
       </motion.div>
 
-      {/* Credentials Info Box */}
+      
       <div className="absolute bottom-4 right-4 bg-white bg-opacity-90 rounded-md shadow-lg p-4 w-11/12 max-w-xs md:max-w-sm lg:w-96">
         <h3 className="text-lg font-semibold text-gray-700 mb-2">
           Use these credentials to login

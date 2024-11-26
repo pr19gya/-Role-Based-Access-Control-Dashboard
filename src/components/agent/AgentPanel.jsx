@@ -56,7 +56,7 @@ const AgentPanel = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-900 text-white">
-      {/* Sidebar */}
+      
       <motion.div
         className={`fixed lg:relative z-20 lg:w-64 h-screen bg-gray-800 p-4 transition-transform duration-300 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
@@ -80,7 +80,7 @@ const AgentPanel = () => {
               }`}
               onClick={() => {
                 setSelectedOption(option);
-                setIsSidebarOpen(false); // Close sidebar on mobile
+                setIsSidebarOpen(false); 
               }}
             >
               {option
@@ -91,7 +91,7 @@ const AgentPanel = () => {
         </ul>
       </motion.div>
 
-      {/* Sidebar Toggle Button */}
+      
       <button
         className="absolute top-4 left-4 lg:hidden bg-gray-700 text-gray-300 p-2 rounded-full shadow-md"
         onClick={() => setIsSidebarOpen(true)}
@@ -99,7 +99,7 @@ const AgentPanel = () => {
         <FaBars size={24} />
       </button>
 
-      {/* Main Content */}
+      
       <div className="flex-1 bg-gray-900 p-4">
         <motion.div
           className="h-full"

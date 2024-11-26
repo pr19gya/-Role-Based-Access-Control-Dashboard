@@ -15,7 +15,7 @@ const ViewUser = () => {
           const users = await response.json();
           setUser(users);
         } else {
-          console.log("Unable to fetch data");
+          // console.log("Unable to fetch data");
         }
       } catch (error) {
         console.error("Error fetching users:", error.message);
@@ -41,10 +41,11 @@ const ViewUser = () => {
       });
 
       if (response.ok) {
+        
         setUser((prevUser) => prevUser.filter((u) => u.id !== userId));
-        console.log("User deleted successfully");
+        // console.log("User deleted successfully");
       } else {
-        console.log("Unable to delete user");
+        // console.log("Unable to delete user");
       }
     } catch (error) {
       console.error("Error deleting user:", error.message);
@@ -67,6 +68,7 @@ const ViewUser = () => {
       });
 
       if (response.ok) {
+       
         setUser((prevUsers) =>
           prevUsers.map((u) =>
             u.id === userId ? { ...u, role: newRole } : u
@@ -74,11 +76,9 @@ const ViewUser = () => {
         );
         setEditingUserId(null);
         setNewRole("");
-        console.log("Role updated successfully");
-        alert("Please refresh the page to see the changes.");
+        // console.log("Role updated successfully");
       } else {
-        console.log("Unable to update role");
-        alert("Please refresh the page to see the changes.");
+        // console.log("Unable to update role");
       }
     } catch (error) {
       console.error("Error updating role:", error.message);

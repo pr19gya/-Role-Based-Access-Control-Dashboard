@@ -30,11 +30,11 @@ const GenerateReport = () => {
   const generatePDF = (ticket) => {
     const doc = new jsPDF();
 
-    // Adding the title of the report
+    
     doc.setFontSize(16);
     doc.text("Ticket Report", 10, 10);
 
-    // Adding ticket details to the PDF
+   
     doc.setFontSize(12);
     doc.text(`Title: ${ticket.title}`, 10, 30);
     doc.text(`Description: ${ticket.description}`, 10, 40);
@@ -43,7 +43,7 @@ const GenerateReport = () => {
     doc.text(`Created By: ${ticket.createdBy}`, 10, 70);
     doc.text(`Created At: ${ticket.createdAt}`, 10, 80);
 
-    // Saving the PDF
+    
     doc.save(`${ticket.title}_Report.pdf`);
   };
 

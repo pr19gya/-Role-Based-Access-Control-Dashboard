@@ -13,7 +13,7 @@ const ViewTickets = () => {
           const tickets = await response.json();
           setTicket(tickets);
         } else {
-          console.log("Unable to fetch tickets");
+          // console.log("Unable to fetch tickets");
         }
       } catch (error) {
         console.log(error);
@@ -35,17 +35,17 @@ const ViewTickets = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="space-y-4">
-                {/* Title */}
+               
                 <div>
                   <h3 className="text-lg sm:text-2xl font-semibold text-gray-300">Title:</h3>
                   <p className="text-sm sm:text-lg">{t.title}</p>
                 </div>
-                {/* Description */}
+               
                 <div>
                   <h3 className="text-lg sm:text-2xl font-semibold text-gray-300">Description:</h3>
                   <p className="text-sm sm:text-lg">{t.description}</p>
                 </div>
-                {/* Status */}
+                
                 <div>
                   <h3 className="text-lg sm:text-2xl font-semibold text-gray-300">Status:</h3>
                   <p
@@ -56,7 +56,7 @@ const ViewTickets = () => {
                     {t.status}
                   </p>
                 </div>
-                {/* Priority */}
+               
                 <div>
                   <h3 className="text-lg sm:text-2xl font-semibold text-gray-300">Priority:</h3>
                   <p
@@ -67,12 +67,12 @@ const ViewTickets = () => {
                     {t.priority}
                   </p>
                 </div>
-                {/* Created By */}
+               
                 <div>
                   <h3 className="text-lg sm:text-2xl font-semibold text-gray-300">Created By:</h3>
                   <p className="text-sm sm:text-lg">{t.createdBy}</p>
                 </div>
-                {/* Created At */}
+               
                 <div>
                   <h3 className="text-lg sm:text-2xl font-semibold text-gray-300">Created At:</h3>
                   <p className="text-sm sm:text-lg">{new Date(t.createdAt).toLocaleString()}</p>

@@ -28,15 +28,15 @@ const AddTickets = () => {
     try {
       const response = await axios.post(`${base_url}tickets`, ticket);
       if (response.status === 201) {
-        console.log('Ticket created successfully');
+        // console.log('Ticket created successfully');
         alert('Ticket created successfully!');
       } else {
-        console.log('Ticket not created');
+        // console.log('Ticket not created');
         alert('Error creating ticket. Please try again.');
       }
     } catch (error) {
       console.log(error);
-      alert('Please refresh the page to see the changes.');
+      // alert('Please refresh the page to see the changes.');
     }
   };
 
