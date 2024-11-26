@@ -60,12 +60,12 @@ const AdminPanel = () => {
     <div className="flex min-h-screen bg-gray-900 text-white">
       
       <motion.div
-        className={`fixed lg:relative z-20 lg:w-64 h-screen bg-gray-800 p-4 transition-transform duration-300 ${
+        className={`fixed lg:relative z-20 lg:w-64 h-screen bg-gray-800 p-4  transition-transform duration-300 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         }`}
       >
         <button
-          className="block lg:hidden mb-4 text-gray-400 hover:text-white"
+          className="block lg:hidden mb-4  text-gray-400 hover:text-white"
           onClick={() => setIsSidebarOpen(false)}
         >
           <FaTimes size={24} />
@@ -101,10 +101,10 @@ const AdminPanel = () => {
 
      
       <button
-        className="absolute top-4 left-4 lg:hidden bg-gray-700 text-gray-300 p-2 rounded-full shadow-md"
+        className="absolute top-4 left-4 lg:hidden bg-gray-700 mt-10 text-gray-300 p-2 rounded-full shadow-md"
         onClick={() => setIsSidebarOpen(true)}
       >
-        <FaBars size={24} />
+        <FaBars size={20} />
       </button>
 
       
